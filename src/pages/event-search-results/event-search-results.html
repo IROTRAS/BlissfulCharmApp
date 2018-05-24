@@ -1,0 +1,30 @@
+<!--
+  Generated template for the EventSearchResultsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EventSearchResults</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list no-lines>
+
+    <ion-item *ngFor="let event of events">
+      <h2>Event Date:</h2>{{event.eventdate}}
+      <h1>First Name:</h1>{{event.firstname}}
+      <h1>Last Name:</h1>{{event.lastname}}
+    </ion-item>
+
+  </ion-list>
+  <!--
+  <button ion-button full color="secondary" (click)="save()">Save</button>
+  -->
+</ion-content>

@@ -1,0 +1,83 @@
+<!--
+
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add New Event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <form [formGroup]="customerForm">
+      <ion-item>
+        <ion-label floating>Event Date</ion-label>
+        <ion-datetime formControlName="eventdate" displayFormat="MMM D, YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Event Type</ion-label>
+        <ion-select formControlName="eventtype">
+          <ion-option value="wedding">Wedding</ion-option>
+          <ion-option value="birthday">Birthday</ion-option>
+          <ion-option value="party">Party</ion-option>
+          <ion-option value="other">Other</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input formControlName="firstname" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input formControlName="lastname" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input formControlName="phone" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input formControlName="address" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Event Status</ion-label>
+        <ion-select formControlName="eventstatus" >
+          <ion-option value="pending">Pending</ion-option>
+          <ion-option value="complete">Complete</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Payment Status</ion-label>
+        <ion-select formControlName="paymentstatus">
+          <ion-option value="notpaid">Not Paid</ion-option>
+          <ion-option value="partial">Partial</ion-option>
+          <ion-option value="paid">Paid</ion-option>
+        </ion-select>
+      </ion-item>
+      <button class="button" mat-raised-button (click)="saveevent()" [disabled]="!customerForm.valid">
+        <div>
+          <label class="buttontext">
+            Save Event
+          </label>
+        </div>
+      </button>
+
+    </form>
+
+  </ion-list>
+
+</ion-content>

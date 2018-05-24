@@ -1,0 +1,39 @@
+<!--
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title strong>Search For Event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="customerSearchForm">
+    <ion-item>
+      <ion-label floating>Event Date</ion-label>
+      <ion-datetime formControlName="eventdate" displayFormat="MMM D, YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input formControlName="firstname" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input formControlName="lastname" type="text"></ion-input>
+    </ion-item>
+
+    <button class="button" mat-raised-button (click)="customersearch()" [disabled]="!customerSearchForm.valid">
+        <div>
+          <label class="buttontext">
+            Search
+          </label>
+        </div>
+      </button>
+
+  </form>
+
+</ion-content>

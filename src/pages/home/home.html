@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <img class="image-title" alt="logo" height="40"   src="../assets/imgs/BlissfulCharm_signature.jpg" >
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <button class="button" mat-raised-button (click)="onLoadAddNewEvent()">
+      <ion-grid>
+        <ion-row class="buttonrow">
+          <ion-col col-2>
+            <ion-icon class="icon" name="add-circle">
+            </ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <label class="buttontext">
+              Add Event
+            </label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </button>
+  </div>
+  <div>
+    <button class="button" mat-raised-button (click)="onLoadEditExistingEvent()">
+      <ion-grid>
+        <ion-row class="buttonrow">
+          <ion-col col-2>
+            <ion-icon class="icon" name="calendar">
+            </ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <label class="buttontext">
+              Edit Event
+            </label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </button>
+  </div>
+  <div>
+    <button class="button" mat-raised-button (click)="onLoadViewItems()">
+      <ion-grid>
+        <ion-row class="buttonrow">
+          <ion-col col-2>
+            <ion-icon class="icon" name="apps">
+            </ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <label class="buttontext">
+              View Items
+            </label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </button>
+  </div>
+  <div>
+    <button class="button" mat-raised-button (click)="onLoadAddItemPicture()">
+      <ion-grid>
+        <ion-row class="buttonrow">
+          <ion-col col-2>
+            <ion-icon class="icon" name="camera">
+            </ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <label class="buttontext">
+              Add Pictures
+            </label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </button>
+  </div>
+
+  <!--
+    <ion-list>
+    <ion-item>
+
+    </ion-item>
+  </ion-list>
+-->
+</ion-content>
