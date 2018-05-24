@@ -15,9 +15,9 @@
 
 <ion-content>
 
-  <ion-list no-lines>
+  <ion-list>
 
-    <ion-item *ngFor="let event of events">
+    <ion-item *ngFor="let event of events" (click)="loadevent()">
       <h2>Event Date:</h2>{{event.eventdate}}
       <h1>First Name:</h1>{{event.firstname}}
       <h1>Last Name:</h1>{{event.lastname}}

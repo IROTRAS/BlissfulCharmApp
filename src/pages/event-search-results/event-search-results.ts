@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { EventsProvider } from '../../providers/events/events';
+import { EditExistingEventPage } from '../edit-existing-event/edit-existing-event'
 
 /**
  * Generated class for the EventSearchResultsPage page.
@@ -57,6 +58,9 @@ export class EventSearchResultsPage {
     this.retrieve();
   }
 
+  loadevent() {
+    this.navCtrl.push(EditExistingEventPage);
+  }
   /**
   * Delete a selected document from the MongoDB database
 
