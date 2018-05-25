@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http, Headers } from '@angular/http';
 import { AddItemsToEventPage } from '../add-items-to-event/add-items-to-event';
-
+import { EventsProvider } from '../../providers/events/events';
 
 /**
  */
@@ -16,7 +16,8 @@ import { AddItemsToEventPage } from '../add-items-to-event/add-items-to-event';
 export class AddNewEventPage {
 
   customerForm: FormGroup
-  public events : any;
+  public loadtype: any;
+  public event : any;
   private _HOST: string="http://192.168.0.20:8080/"
   public eventdate: any;
   public eventtype: any;
@@ -50,7 +51,7 @@ export class AddNewEventPage {
 
   saveevent() {
     /**
-    * Retrieve documents from the MongoDB database
+    * Save the Event information to the database
     */
     this._HTTP.post(this._HOST + "api/events", this.customerForm.value)
       .subscribe(

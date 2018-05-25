@@ -10,7 +10,7 @@
 
 
 <ion-content padding>
-  <form [formGroup]="customerSearchForm">
+  <form [formGroup]="eventSearchForm">
     <ion-item>
       <ion-label floating>Event Date</ion-label>
       <ion-datetime formControlName="eventdate" displayFormat="MMM D, YYYY"></ion-datetime>
@@ -26,7 +26,7 @@
       <ion-input formControlName="lastname" type="text"></ion-input>
     </ion-item>
 
-    <button class="button" mat-raised-button (click)="customersearch()" [disabled]="!customerSearchForm.valid">
+    <button class="button" mat-raised-button (click)="eventsearch()" [disabled]="!eventSearchForm.valid">
         <div>
           <label class="buttontext">
             Search

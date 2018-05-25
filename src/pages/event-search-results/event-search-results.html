@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>EventSearchResults</ion-title>
+    <ion-title>Event Search Results</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,11 +17,24 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let event of events" (click)="loadevent()">
-      <h2>Event Date:</h2>{{event.eventdate}}
-      <h1>First Name:</h1>{{event.firstname}}
-      <h1>Last Name:</h1>{{event.lastname}}
-    </ion-item>
+    <ion-item-sliding *ngFor="let event of events" #item (click)="editEventDetails(item)">
+      <ion-item>
+        <h2>Event Date:</h2>{{event.eventdate}}
+        <h1>First Name:</h1>{{event.firstname}}
+        <h1>Last Name:</h1>{{event.lastname}}
+        <h1>Event ID:</h1>{{event._id}}
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="minor" (click)="editEventDetails(item)">
+          <ion-icon class="swicon" name="add-circle"></ion-icon>
+          Edit Event
+        </button>
+        <button ion-button color="minor" (click)="addItemsToEvent(item)">
+          <ion-icon class="swicon" name="calendar"></ion-icon>
+          Add Items
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
 
   </ion-list>
   <!--

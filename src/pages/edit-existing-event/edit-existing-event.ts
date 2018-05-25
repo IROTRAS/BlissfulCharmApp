@@ -13,22 +13,29 @@ import { EventSearchResultsPage } from '../event-search-results/event-search-res
 })
 export class EditExistingEventPage {
 
-  customerSearchForm: FormGroup
+  eventSearchForm: FormGroup
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder){
 
-    this.customerSearchForm = this.formBuilder.group({
-      eventdate: ['', Validators.required],
+    this.eventSearchForm = this.formBuilder.group({
+      eventdate: [''],
       firstname: [''],
       lastname: [''],
       })
   }
 
-  customersearch() {
-    this.navCtrl.push(EventSearchResultsPage);
+  eventsearch() {
+
+    this.navCtrl.push(EventSearchResultsPage, {
+      searchdata: {
+        //eventdate: this.eventSearchForm.controls['eventdate'],
+        firstname: this.eventSearchForm.controls['firstname'],
+        lastname: this.eventSearchForm.controls['lastname']
+      }
+    });
   }
 
   ionViewDidLoad() {

@@ -1,6 +1,6 @@
 {
   "name": "BlissfulCharm",
-  "app_id": "",
+  "app_id": "108bcd93",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

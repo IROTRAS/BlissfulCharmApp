@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ModalController, ToastController }
 import { Http, Headers } from '@angular/http';
 import { EventsProvider } from '../../providers/events/events';
 import { EditExistingEventPage } from '../edit-existing-event/edit-existing-event'
+import { AddNewEventPage } from '../add-new-event/add-new-event';
+import { AddItemsToEventPageModule } from '../add-items-to-event/add-items-to-event.module';
 
 /**
  * Generated class for the EventSearchResultsPage page.
@@ -18,7 +20,9 @@ import { EditExistingEventPage } from '../edit-existing-event/edit-existing-even
 })
 export class EventSearchResultsPage {
 
+  public eventid: any;
   public events : any;
+  public searchdata: any;
   private _HOST: string="http://192.168.0.20:8080/"
   public eventdate: any;
   public eventtype: any;
@@ -37,6 +41,7 @@ export class EventSearchResultsPage {
               private _TOAST: ToastController,
               private _HTTP: Http,
               public eventsService: EventsProvider){
+    this.eventid= this.navParams.get('_id')
     this.eventdate= this.navParams.get('eventdate');
     this.eventtype= this.navParams.get('eventtype');
     this.eventstatus= this.navParams.get('eventstatus');
@@ -55,11 +60,15 @@ export class EventSearchResultsPage {
   */
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventSearchResultsPage');
-    this.retrieve();
+    this.retrieve(this.navParams.get('searchdata'));
   }
 
-  loadevent() {
-    this.navCtrl.push(EditExistingEventPage);
+  editEventDetails() {
+    this.navCtrl.push(AddNewEventPage);
+  }
+
+  addItemsToEvent() {
+    this.navCtrl.push(AddItemsToEventPageModule);
   }
   /**
   * Delete a selected document from the MongoDB database
@@ -78,7 +87,7 @@ export class EventSearchResultsPage {
     .subscribe((data : any) =>
     {
         // If the request was successful notify the user
-        this.retrieve();
+        this.retrievetodelete();
         this.displayNotification(data.records.name + ' was successfully deleted');
     },
     (error : any) =>
@@ -90,7 +99,7 @@ export class EventSearchResultsPage {
   /**
   * Retrieve documents from the MongoDB database
   */
-  retrieve() {
+  retrieve(searchdata: any) {
     //var data=[];
     this._HTTP
       .get(this._HOST + "api/events")
@@ -104,7 +113,22 @@ export class EventSearchResultsPage {
       );
   }
 
-
+  /**
+  * Retrieve documents from the MongoDB database
+  */
+  retrievetodelete() {
+    //var data=[];
+    this._HTTP
+      .get(this._HOST + "api/events")
+      .subscribe(
+        (data: any) =>
+        {
+          this.events = JSON.parse(data._body);
+        },
+        (error : any) =>
+        {console.dir(error);}
+      );
+  }
 
   /**
   * Send the record (for the selected document from the MongoDB
